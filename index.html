@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2609872-21"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-2609872-21');
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Graviton</title>
+    <title>Unity WebGL Player | GRAVITON BETA</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
-  <body>
+  <body style="background-color:black;">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=640 height=640></canvas>
       <div id="unity-loading-bar">
@@ -22,7 +30,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Graviton</div>
+        <div id="unity-build-title">GRAVITON BETA</div>
       </div>
     </div>
     <script>
@@ -34,7 +42,7 @@
         codeUrl: buildUrl + "/Build_Alpha_WebGL.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "JAMAD",
-        productName: "Graviton",
+        productName: "GRAVITON BETA",
         productVersion: "1.0",
       };
 
@@ -54,13 +62,9 @@
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
-        // Avoid draining fillrate performance on mobile devices,
-        // and default/override low DPI mode on mobile browsers.
         config.devicePixelRatio = 1;
         mobileWarning.style.display = "block";
-        setTimeout(() => {
-          mobileWarning.style.display = "none";
-        }, 5000);
+        setTimeout(() => {          mobileWarning.style.display = "none";        }, 5000);
       } else {
         canvas.style.width = "640px";
         canvas.style.height = "640px";
@@ -73,13 +77,8 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
+          loadingBar.style.display = "none";          fullscreenButton.onclick = () => {            unityInstance.SetFullscreen(1);          };
+        }).catch((message) => {          alert(message);        });
       };
       document.body.appendChild(script);
     </script>
